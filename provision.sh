@@ -6,7 +6,6 @@ sed -i -e "s/^SELINUX=permissive$/SELINUX=enforcing/g" /etc/selinux/config
 
 # Install packages
 yum install -y wget git net-tools bind-utils iptables-services bridge-utils bash-completion
-yum update -y
 
 # Install Docker
 yum install -y docker
