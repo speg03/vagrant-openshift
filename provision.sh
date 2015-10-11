@@ -9,7 +9,6 @@ yum install -y wget git net-tools bind-utils iptables-services bridge-utils bash
 
 # Install Docker
 yum install -y docker
-sed -i -e "/^# INSECURE_REGISTRY/a INSECURE_REGISTRY='--insecure-registry 172.30.0.0/16'" /etc/sysconfig/docker
 
 # Install Ansible
 yum install -y epel-release
