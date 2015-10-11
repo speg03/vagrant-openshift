@@ -8,7 +8,7 @@ git checkout v3.0.2-1
 
 ```
 ssh-keygen -f ~/.ssh/id_rsa -N ''
-ssh-copy-id root@master.192.168.133.10.xip.io
+ssh-copy-id vagrant@master.192.168.133.10.xip.io
 ```
 
 ```
