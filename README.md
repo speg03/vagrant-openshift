@@ -19,3 +19,15 @@ sudo cp -R /vagrant/ansible/host_vars /etc/ansible/
 ```
 ansible-playbook ~/openshift-ansible/playbooks/byo/config.yml
 ```
+
+```
+sudo oadm registry --service-account=registry \
+  --config=/etc/origin/master/admin.kubeconfig \
+  --credentials=/etc/origin/master/openshift-registry.kubeconfig \
+  --mount-host=/registry
+```
+
+```
+oadm router --service-account=router \
+  --credentials=/etc/origin/master/openshift-router.kubeconfig
+```
