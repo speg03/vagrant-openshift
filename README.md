@@ -28,6 +28,6 @@ sudo oadm registry --service-account=registry \
 ```
 
 ```
-oadm router --service-account=router \
+sudo oadm router --service-account=router \
   --credentials=/etc/origin/master/openshift-router.kubeconfig
 ```
