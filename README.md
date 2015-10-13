@@ -2,7 +2,7 @@
 
 ```
 # Network configuration
-echo <<EOF >/etc/sysconfig/network-scripts/ifcfg-eth1
+cat <<EOF >/etc/sysconfig/network-scripts/ifcfg-eth1
 NM_CONTROLLED=no
 BOOTPROTO=none
 ONBOOT=yes
