@@ -1,23 +1,6 @@
 # vagrant-openshift
 
 ```
-# Network configuration
-cat <<EOF >/etc/sysconfig/network-scripts/ifcfg-eth1
-NM_CONTROLLED=no
-BOOTPROTO=none
-ONBOOT=yes
-IPADDR=192.168.133.10
-NETMASK=255.255.255.0
-DEVICE=eth1
-PEERDNS=no
-EOF
-```
-
-```
-git clone -b v3.0.2-1 https://github.com/openshift/openshift-ansible
-```
-
-```
 ssh-keygen -f ~/.ssh/id_rsa -N ''
 ssh-copy-id vagrant@master.192.168.133.10.xip.io
 ```
@@ -28,6 +11,7 @@ sudo cp -R sync/ansible/host_vars /etc/ansible/
 ```
 
 ```
+git clone -b v3.0.2-1 https://github.com/openshift/openshift-ansible
 ansible-playbook ~/openshift-ansible/playbooks/byo/config.yml
 ```
 
