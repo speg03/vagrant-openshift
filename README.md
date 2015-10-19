@@ -1,19 +1,26 @@
 # vagrant-openshift
 
-```
-ssh-keygen -f ~/.ssh/id_rsa -N ''
-ssh-copy-id vagrant@master.192.168.133.10.xip.io
-```
+## Install OpenShift Origin
 
 ```
-sudo cp sync/ansible/hosts /etc/ansible/
-sudo cp -R sync/ansible/host_vars /etc/ansible/
+sh sync/provision/openshift.sh
 ```
 
+## Default project configuration
+
+The *default* project/namespace is a special one where we will put some of our infrastructure-related resources.
+
 ```
-git clone -b v3.0.2-1 https://github.com/openshift/openshift-ansible
-ansible-playbook ~/openshift-ansible/playbooks/byo/config.yml
+oc edit namespace default
 ```
+
+In the annotations list, add this line:
+
+```
+openshift.io/node-selector: region=infra
+```
+
+## Create infra resources
 
 ```
 sudo oadm registry --service-account=registry \
