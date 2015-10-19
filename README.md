@@ -1,5 +1,16 @@
 # vagrant-openshift
 
+## Environment
+
+* VirtualBox
+* Vagrant
+
+## Create instances
+
+```
+vagrant up
+```
+
 ## Install OpenShift Origin
 
 ```
