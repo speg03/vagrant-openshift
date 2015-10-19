@@ -22,6 +22,7 @@ osm_default_node_selector='region=primary'
 master.192.168.133.10.xip.io
 [nodes]
 master.192.168.133.10.xip.io
+node.192.168.133.11.xip.io
 EOF
 
 mkdir /etc/ansible/host_vars
