@@ -1,10 +1,5 @@
 # vagrant-openshift
 
-## Environment
-
-* VirtualBox
-* Vagrant
-
 ## Create instances
 
 ```
