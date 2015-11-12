@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Install ansible
-yum install -y epel-release
+yum install -y pyOpenSSL epel-release
 sed -i -e "s/^enabled=1/enabled=0/" /etc/yum.repos.d/epel.repo
 yum --enablerepo=epel install -y ansible
 
