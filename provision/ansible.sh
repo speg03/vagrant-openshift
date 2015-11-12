@@ -19,16 +19,16 @@ openshift_master_identity_providers=[{'name': 'allow_all_auth', 'login': 'true',
 osm_default_subdomain=cloudapps.192.168.133.10.xip.io
 osm_default_node_selector='region=primary'
 [masters]
-master.192.168.133.10.xip.io
+master.internal
 [nodes]
-master.192.168.133.10.xip.io
-node.192.168.133.11.xip.io
+master.internal
+node.internal
 EOF
 
 mkdir /etc/ansible/host_vars
-cat <<EOF >/etc/ansible/host_vars/master.192.168.133.10.xip.io
+cat <<EOF >/etc/ansible/host_vars/master.internal
 ---
-openshift_hostname: master.192.168.133.10.xip.io
+openshift_hostname: master.internal
 openshift_public_hostname: master.192.168.133.10.xip.io
 openshift_ip: 192.168.133.10
 openshift_public_ip: 192.168.133.10
@@ -36,9 +36,9 @@ openshift_node_labels: "{'region': 'infra', 'zone': 'default'}"
 openshift_schedulable: true
 EOF
 
-cat <<EOF >/etc/ansible/host_vars/node.192.168.133.11.xip.io
+cat <<EOF >/etc/ansible/host_vars/node.internal
 ---
-openshift_hostname: node.192.168.133.11.xip.io
+openshift_hostname: node.internal
 openshift_public_hostname: node.192.168.133.11.xip.io
 openshift_ip: 192.168.133.11
 openshift_public_ip: 192.168.133.11

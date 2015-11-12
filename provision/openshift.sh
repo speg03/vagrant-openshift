@@ -4,8 +4,8 @@ cd $HOME
 
 ssh-keygen -f .ssh/id_rsa -N ''
 for host in \
-    master.192.168.133.10.xip.io \
-    node.192.168.133.11.xip.io;
+    master.internal \
+    node.internal;
 do
     ssh-copy-id vagrant@${host}
 done
