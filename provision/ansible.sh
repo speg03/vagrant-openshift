@@ -22,7 +22,6 @@ osm_default_node_selector='region=primary'
 master.internal
 [nodes]
 master.internal
-node.internal
 EOF
 
 mkdir /etc/ansible/host_vars
@@ -32,15 +31,6 @@ openshift_hostname: master.internal
 openshift_public_hostname: master.192.168.133.10.xip.io
 openshift_ip: 192.168.133.10
 openshift_public_ip: 192.168.133.10
-openshift_node_labels: "{'region': 'infra', 'zone': 'default'}"
-openshift_schedulable: true
-EOF
-
-cat <<EOF >/etc/ansible/host_vars/node.internal
----
-openshift_hostname: node.internal
-openshift_public_hostname: node.192.168.133.11.xip.io
-openshift_ip: 192.168.133.11
-openshift_public_ip: 192.168.133.11
 openshift_node_labels: "{'region': 'primary', 'zone': 'default'}"
+openshift_schedulable: true
 EOF
