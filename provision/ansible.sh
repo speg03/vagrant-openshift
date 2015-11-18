@@ -11,11 +11,9 @@ cat <<EOF >/etc/ansible/hosts
 masters
 nodes
 [OSEv3:vars]
-ansible_ssh_user=vagrant
-ansible_sudo=true
 product_type=openshift
 deployment_type=origin
-openshift_master_identity_providers=[{'name': 'allow_all_auth', 'login': 'true', 'challenge': 'true', 'kind': 'AllowAllPasswordIdentityProvider'}]
+openshift_master_identity_providers=[{'name': 'allow_all', 'login': 'true', 'challenge': 'true', 'kind': 'AllowAllPasswordIdentityProvider'}]
 osm_default_subdomain=cloudapps.192.168.133.10.xip.io
 osm_default_node_selector='region=primary'
 [masters]

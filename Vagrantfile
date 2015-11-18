@@ -15,5 +15,7 @@ Vagrant.configure(2) do |config|
     c.vm.provision "shell", path: "provision/ansible.sh"
 
     c.vm.provision "shell", run: "always", path: "provision/disable-default-dns.sh"
+
+    c.vm.provision "shell", path: "provision/openshift.sh"
   end
 end
