@@ -18,5 +18,5 @@ EOF
 
 chmod 0600 .ssh/authorized_keys .ssh/config
 
-git clone -b openshift-ansible-3.0.13-1 https://github.com/openshift/openshift-ansible
+git clone -b openshift-ansible-3.0.16-1 https://github.com/openshift/openshift-ansible
 ansible-playbook openshift-ansible/playbooks/byo/config.yml
