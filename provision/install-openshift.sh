@@ -41,7 +41,7 @@ EOF
 
 mkdir -m 0700 $HOME/.ssh
 ssh-keygen -q -f $HOME/.ssh/id_rsa -N ''
-cat .ssh/id_rsa.pub >>$HOME/.ssh/authorized_keys
+cat $HOME/.ssh/id_rsa.pub >>$HOME/.ssh/authorized_keys
 
 cat <<EOF >>$HOME/.ssh/config
 Host master.internal
