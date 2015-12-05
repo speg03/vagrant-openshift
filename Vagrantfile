@@ -6,6 +6,7 @@ Vagrant.configure(2) do |config|
   config.vm.provider "virtualbox" do |vb|
     vb.memory = "2048"
   end
+  config.vm.synced_folder ".", "/home/vagrant/sync", disabled: true
 
   config.vm.define :master do |c|
     c.vm.network "private_network", ip: "192.168.133.10", auto_config: false
