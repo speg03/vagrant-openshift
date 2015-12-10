@@ -27,6 +27,8 @@ Vagrant.configure(2) do |config|
       c.vm.network "private_network", ip: ipaddr, auto_config: false
       c.vm.provision "shell", path: "provision/configure-network.sh",
                      args: [hostname, ipaddr, dns_ipaddr]
+      c.vm.provision "shell", path: "provision/update-resolv-conf.sh",
+                     args: [dns_ipaddr], run: "always"
     end
   end
 
@@ -40,5 +42,7 @@ Vagrant.configure(2) do |config|
                    args: [params[:base_ip], params[:num_nodes]]
     c.vm.provision "shell", path: "provision/install-openshift.sh",
                    args: [params[:base_ip], params[:num_nodes]]
+    c.vm.provision "shell", path: "provision/update-resolv-conf.sh",
+                   args: [ipaddr], run: "always"
   end
 end

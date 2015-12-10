@@ -10,7 +10,6 @@ nmcli general hostname ${hostname}
 nmcli connection add type ethernet con-name eth1 ifname eth1
 nmcli connection modify eth1 ipv4.addresses ${ipaddr}/24
 nmcli connection modify eth1 ipv4.method manual
-nmcli connection modify eth1 ipv4.dns ${dns_ipaddr}
 nmcli connection down eth1 && nmcli connection up eth1
 
 echo *** Ensuring non-interactive host access...
