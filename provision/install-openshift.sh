@@ -4,6 +4,13 @@ base_ip=$1
 num_nodes=$2
 app_domain="cloudapps.${base_ip}0.xip.io"
 
+echo *** Install packages for openshift-ansible
+
+yum install -y epel-release
+
+sed -i -e "s/^enabled=1/enabled=0/" /etc/yum.repos.d/epel.repo
+yum --enablerepo=epel install -y ansible
+
 echo *** Set parameters for openshift-ansible...
 
 cat <<-EOF >/etc/ansible/hosts
