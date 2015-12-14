@@ -4,7 +4,7 @@ hostname=$1
 ipaddr=$2
 dns_ipaddr=$3
 
-echo *** Configure internal network...
+echo "*** Configure internal network..."
 
 nmcli general hostname ${hostname}
 nmcli connection add type ethernet con-name eth1 ifname eth1
@@ -12,7 +12,7 @@ nmcli connection modify eth1 ipv4.addresses ${ipaddr}/24
 nmcli connection modify eth1 ipv4.method manual
 nmcli connection down eth1 && nmcli connection up eth1
 
-echo *** Ensuring non-interactive host access...
+echo "*** Ensure non-interactive host access..."
 
 mkdir -m 0700 /root/.ssh
 

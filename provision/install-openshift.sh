@@ -4,14 +4,14 @@ base_ip=$1
 num_nodes=$2
 app_domain="cloudapps.${base_ip}0.xip.io"
 
-echo *** Install packages for openshift-ansible
+echo "*** Install packages for openshift-ansible"
 
 yum install -y epel-release
 
 sed -i -e "s/^enabled=1/enabled=0/" /etc/yum.repos.d/epel.repo
 yum --enablerepo=epel install -y ansible
 
-echo *** Set parameters for openshift-ansible...
+echo "*** Set parameters for openshift-ansible..."
 
 cat <<-EOF >/etc/ansible/hosts
 	[OSEv3:children]
@@ -56,7 +56,7 @@ for i in $(seq 0 ${num_nodes}); do
 	EOF
 done
 
-echo *** Install OpenShift...
+echo "*** Install OpenShift..."
 git clone https://github.com/openshift/openshift-ansible \
     /root/openshift-ansible
 ansible-playbook /root/openshift-ansible/playbooks/byo/config.yml
@@ -64,12 +64,12 @@ ansible-playbook /root/openshift-ansible/playbooks/byo/config.yml
 echo "*** Deploy applications in default project to infra region"
 oc patch namespace default -p '{"metadata": {"annotations": {"openshift.io/node-selector": "region=infra"}}}'
 
-echo *** Deploy docker-registry...
+echo "*** Deploy docker-registry..."
 oadm registry --service-account=registry \
     --config=/etc/origin/master/admin.kubeconfig \
     --credentials=/etc/origin/master/openshift-registry.kubeconfig \
     --mount-host=/registry
 
-echo *** Deploy router...
+echo "*** Deploy router..."
 oadm router --service-account=router \
     --credentials=/etc/origin/master/openshift-router.kubeconfig

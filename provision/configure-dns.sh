@@ -3,7 +3,7 @@
 base_ip=$1
 num_nodes=$2
 
-echo *** Configure internal DNS server...
+echo "*** Configure internal DNS server..."
 
 echo "${base_ip}0  master.internal master" >>/etc/hosts
 for i in $(seq 0 ${num_nodes}); do
