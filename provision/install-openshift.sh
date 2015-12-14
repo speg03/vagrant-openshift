@@ -61,6 +61,9 @@ git clone https://github.com/openshift/openshift-ansible \
     /root/openshift-ansible
 ansible-playbook /root/openshift-ansible/playbooks/byo/config.yml
 
+echo "*** Deploy applications in default project to infra region"
+oc patch namespace default -p '{"metadata": {"annotations": {"openshift.io/node-selector": "region=infra"}}}'
+
 echo *** Deploy docker-registry...
 oadm registry --service-account=registry \
     --config=/etc/origin/master/admin.kubeconfig \
